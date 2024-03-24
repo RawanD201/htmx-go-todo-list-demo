@@ -167,8 +167,8 @@
     </div>
     <form
       class="form"
-      hx-post="/add-film/"
-      hx-target="#film-list"
+      hx-post="/add-todo/"
+      hx-target="#todo-list"
       hx-swap="beforeend"
       hx-indicator="#spinner"
     >
@@ -180,7 +180,7 @@
         <input
           type="text"
           name="title"
-          id="film-title"
+          id="todo-title"
           hx-on::after-request="hx.target.value = ''"
           class="form__input"
           size="30"
@@ -193,10 +193,10 @@
     <div>
       <ul
         class="toDoList"
-        id="film-list"
+        id="todo-list"
       >
-        {{ range .Films }}
-        {{ block "film-list-element" .}}
+        {{ range .Todos }}
+        {{ block "todo-list" .}}
         <li>{{ .Title }}</li>
         {{ end }}
         {{ end }}
